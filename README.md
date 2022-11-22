@@ -22,4 +22,6 @@ My general use latex style file. Stylistic inspiration for this design came from
 the command ```\importfiles``` does everything for you. I made this command after realizing halfway through the semester that more than 75% of my ```main.tex``` was just importing files, and it was a bit of a hassle to have to scroll all the time.
 
 ## features I want to add 
-* support for theorem/corollary/proposition/etc. referencing tags
+* support for theorem/corollary/proposition/etc. referencing tags. right now, the way that I've set up my color boxes is separate from the way that I'm tagging each box, meaning that referencing does not work like it normally would (i.e., for regular ```\begin{theorem} ... \end{theorem}``` 
+environments). I'd like to try to combine these two functionalities
+* create commands for some of my templates, so incorporating them in real-time is faster
