@@ -4,6 +4,7 @@ My general use latex style file. Stylistic inspiration for this design came from
 ## features
 
 * support for color boxes, as usual for most handouts. the specific color palette is viewable inside of ```_andrew.sty```.
+* optional ```[notes]``` tag that specifically tailors the style file for taking notes in class (as opposed to e.g. writing handouts)
 * templates, including common matrix patterns (and block matrices), basic asymptote visuals, and table patters. useful for taking notes in real-time
 * support for importing lots of files. when taking notes for various classes, I usually like to organize notes by lecture in different files (e.g., 0527.tex). instead of having ```main.tex``` look like this: 
 ```tex
