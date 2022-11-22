@@ -1,0 +1,26 @@
+\documentclass[11pt]{article} 
+\usepackage[T1]{fontenc}
+% \usepackage{_andrew} % if e.g. writing a handout
+\usepackage[notes]{_andrew} % if taking notes for a class
+
+\begin{document}
+\settitle{Handout Template}
+\setprof{Lecturer} % shows up with [notes]
+\setdate{Fall 2022}
+\setimportfolder{myfiles}
+\maketitle
+
+This is a Minimal Working Example of \verb+_andrew.sty+
+
+\vfill
+
+\hfill \textcolor{gray}{\small Last updated on \today.}
+\newpage
+\tableofcontents 
+\newpage
+
+\importfiles % from _andrew.sty
+% automatically imports files from the folder set on line 10, so that there is no need to manually import any time a new file is added to this folder
+% if not set, the default is ``notes'' (no quotation marks)
+
+\end{document}

@@ -1,0 +1,339 @@
+%%%%%%%%%%%%%
+%    ^~^  , %
+%   ('Y') ) %
+%   /   \/  %
+%  (\|||/)  %
+%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_andrew}[2022/10/01 Andrew's sty file]
+
+% formatting packages
+\RequirePackage[dvipsnames]{xcolor} % makes things rainbow
+\RequirePackage{setspace} \onehalfspacing % spacing
+\RequirePackage{tcolorbox} % rainbow boxes
+\RequirePackage{titlesec} % section customization
+\RequirePackage{multirow} % tables
+\RequirePackage{float} % figure formatting
+\RequirePackage{graphicx} % \includegraphics
+\RequirePackage[stable]{footmisc} % footnotes
+\RequirePackage[margin = 1.5in]{geometry} % margins
+\RequirePackage{fancyhdr} % headers+footers
+\RequirePackage{tocloft} % toc
+\RequirePackage{pgffor} % \foreach
+\RequirePackage{upgreek} % upright greek letters
+\RequirePackage{marvosym} % astronomy symbols
+\RequirePackage{fontawesome} % more symbols
+
+% math packages
+\RequirePackage{mathtools} % stl
+\RequirePackage{amssymb} % stl
+\RequirePackage{amsthm} % stl
+\RequirePackage{empheq} % stl
+\RequirePackage{xfrac} % diagonal fractions
+\RequirePackage{asymptote} % pretty pictures
+\RequirePackage{mathdots} % dots 
+\RequirePackage{cancel} % cancelling lines 
+\RequirePackage{hyperref} % referencing 
+
+% setting up section headers
+\titleformat{\section}
+  {\fontfamily{lmss}\bfseries\LARGE}{\fontfamily{lmss}\bfseries\LARGE\thesection}{1em}{}
+\titleformat{\subsection}
+  {\fontfamily{lmss}\bfseries\Large}{\fontfamily{lmss}\bfseries\Large\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\fontfamily{lmss}\bfseries\large}{\fontfamily{lmss}\bfseries\large\thesubsubsection}{1em}{}
+  
+% table of contents
+\renewcommand{\cfttoctitlefont}{\fontfamily{lmss}\bfseries\LARGE}
+\renewcommand{\cftsecfont}{\fontfamily{lmss}\bfseries}
+
+% table of contents linking 
+\hypersetup{
+    colorlinks=true, 
+    linktoc=all,    
+    linkcolor=BrickRed,  
+}
+
+% general commands
+\newcommand{\problem}[2]{\textbf{Problem #1} (#2)\textbf{.}}
+\newcommand{\V}{
+
+\vspace{\baselineskip}
+
+}
+\renewcommand{\comment}[1]{\textbf{\textcolor{Red}{#1}}}
+\newcommand{\cis}[1]{\text{cis}(#1^{\circ})}
+\newcommand{\ac}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\EE}{\mathbb{E}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Span}{span} % \span already defined
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\newcommand{\gen}[1]{\langle #1\rangle}
+\newcommand{\lgen}[1]{\left\langle #1 \right\rangle}
+
+% matrix shortcuts
+\newcommand{\htwo}[2]{\begin{pmatrix}#1 & #2\end{pmatrix}}
+\newcommand{\vtwo}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\twotwo}[4]{\begin{pmatrix}#1 & #2 \\ #3 & #4\end{pmatrix}}
+
+% horizontal bar from Evan Chen
+\newcommand{\hrulebar}{
+	\par\hspace{\fill}\rule{0.95\linewidth}{.7pt}\hspace{\fill}
+	\par\nointerlineskip \vspace{\baselineskip}
+}
+
+% warning symbol for misconception box
+% repurposed from https://tex.stackexchange.com/a/159701
+\newcommand\Warning{%
+ \makebox[1.1em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{{\fontfamily{lmss}\selectfont\scriptsize!}}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}
+
+% labeling commands
+% initializing box counter
+\newcounter{cnt}[section] 
+\newcommand{\deflabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont
+\textbf{\textcolor{WildStrawberry}{Definition \thesection.\thecnt}}}}
+\newcommand{\thmlabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Theorem \thesection.\thecnt}}}}
+\newcommand{\thmlabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Theorem \thesection.\thecnt} (#1)}}}
+\newcommand{\proplabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Proposition \thesection.\thecnt}}}}
+\newcommand{\proplabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Proposition \thesection.\thecnt} (#1)}}}
+\newcommand{\corlabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Corollary \thesection.\thecnt}}}}
+\newcommand{\exlabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{Green}{Example \thesection.\thecnt}}}}
+\newcommand{\lemlabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Lemma \thesection.\thecnt}}}}
+\newcommand{\mislabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{black}{Misconception} \Warning \textcolor{black}}}}
+
+% titling defaults
+% verbose naming to (hopefully) avoid collisions
+\def \customtitle {Default Title}
+\def \customauthor {Andrew Liu}
+\def \customprof {Default Lecturer}
+\def \customdate {\today}
+\def \customlhead {\customauthor}
+\def \customrhead {}
+\def \customimportfolder {notes}
+
+% titling commands
+\newcommand{\settitle}[1]{\renewcommand{\customtitle}{#1}}
+\newcommand{\setauthor}[1]{\renewcommand{\customauthor}{#1}}
+\newcommand{\setprof}[1]{\renewcommand{\customprof}{#1}}
+\newcommand{\setdate}[1]{\renewcommand{\customdate}{#1}}
+\newcommand{\setlhead}[1]{\renewcommand{\customlhead}{#1}}
+\newcommand{\setrhead}[1]{\renewcommand{\customrhead}{#1}}
+\newcommand{\setimportfolder}[1]{\renewcommand{\customimportfolder}{#1}}
+
+% setting main title
+\title{{\fontfamily{lmss}\selectfont
+\textbf{\customtitle}}}
+\author{\large \textsc{\customauthor}}
+\date{\customdate}
+
+% setting headers 
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\pagestyle{fancy} 
+\lhead{\customlhead}
+\rhead{\customrhead}
+\cfoot{\thepage}
+
+% process options
+\DeclareOption{notes}{
+\title{{\fontfamily{lmss}\selectfont
+\textbf{\huge \customtitle}}}
+\title{{\fontfamily{lmss}\selectfont
+\textbf{{\huge \customtitle}\\
+{\Large Lecturer: \customprof}
+}}}
+\rhead{\nouppercase{\leftmark}}
+}
+\DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+% color boxes
+\newtcolorbox{example}{colback = SeaGreen!10, arc = 0mm, boxrule=0mm}
+\newtcolorbox{definition}{colback = WildStrawberry!10, arc = 0mm, boxrule=0mm}
+\newtcolorbox{theorem}{colback = blue!10, arc=0mm, boxrule=0mm}
+\newtcolorbox{misconception}{colback = black!10, arc=0mm, boxrule=0mm}
+
+% import files
+\def \months {01,02,03,04,05,06,07,08,09,...,12}
+\def \days {01,02,03,04,05,06,07,08,09,...,31}
+\newcommand{\importfiles}{
+    \foreach \i in \months{
+        \foreach \j in \days{
+            \IfFileExists{\customimportfolder/\i\j.tex}{
+            \input{\customimportfolder/\i\j.tex}%
+            }{}
+        }
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USEFUL TEMPLATES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % normal table inside of figure:
+% \begin{figure}[h]
+% \centering
+% \begin{tabular}{|c|c|}
+% \hline
+%     x & y \\
+% \hline
+%     z & w \\
+% \hline
+% \end{tabular}
+% \end{figure}
+
+% % two images side by side:
+% \begin{figure}[H]
+%     \hfill
+%     \begin{minipage}{0.4\textwidth}
+%     \includegraphics[width=\textwidth]{images/cube_dual.png}
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}{0.4\textwidth}
+%     \includegraphics[width=\textwidth]{images/tetr_dual.png}
+%     \end{minipage}
+%     \hfill\hfill
+% \end{figure}
+
+% % fancy table (from overleaf website):
+% \begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+%  \hline
+%  \multicolumn{4}{|c|}{Country List} \\
+%  \hline
+%  Country Name or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+%  \hline
+%  Afghanistan   & AF    &AFG&   004\\
+%  Aland Islands&   AX  & ALA   &248\\
+%  Albania &AL & ALB&  008\\
+%  Algeria    &DZ & DZA&  012\\
+%  American Samoa&   AS  & ASM&016\\
+%  Andorra& AD  & AND   &020\\
+%  Angola& AO  & AGO&024\\
+%  \hline
+% \end{tabular}
+
+% % asymptote starter, dots+lines
+% \begin{center}
+% \begin{asy}
+% import graph; size(3cm); 
+% pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps);
+% pen dotstyle = black;
+% real scale = 1.75;
+
+% pair O = (0,0);
+% pair A = dir(20);
+% pair pA = dir(70);
+
+% draw(O--A);
+% draw(A--pA);
+% draw(O--pA);
+
+% dot(O,dotstyle); 
+% label("$O$", O, S*scale);
+% dot(A,dotstyle); 
+% label("$\alpha$", A, E*scale);
+% dot(pA,dotstyle); 
+% label("$\rho(\alpha)$", pA, NE*scale);
+% \end{asy}
+% \end{center}
+
+% % asymptote starter, circles+colors+shading
+% \begin{center}
+% \begin{asy}
+% import graph; size(2cm); 
+% pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps);
+% pen crust = RGB(208,184,157);
+% pen beef = RGB(138, 66, 14);
+% pen dotstyle = 1+black;
+% real scale = 1.75;
+% real sc2 = 0.4;
+
+% path A = unitcircle;
+% filldraw(A, red+opacity(0.1), crust);
+% path B = scale(0.1)*unitcircle;
+
+% pair X1 = (-0.25, 0.5);
+% pair X2 = (-0.25, 0);
+% pair X3 = (-0.25, -0.5);
+% pair X4 = (-0.67, 0.25);
+% pair X5 = (-0.67, -0.25);
+% filldraw(shift(X1)*B, beef, beef);
+% filldraw(shift(X2)*B, beef, beef);
+% filldraw(shift(X3)*B, beef, beef);
+% filldraw(shift(X4)*B, beef, beef);
+% filldraw(shift(X5)*B, beef, beef);
+% \end{asy}
+% \end{center}
+
+% % general matrix starter
+% \begin{pmatrix}3 & 2 \\ 2 & 5\end{pmatrix}
+% \twotwo{1}{0}{0}{1} % id
+% \vtwo{1}{0} % 2x1
+% \htwo{0}{1} % 1x2
+
+% % 3x3 matrix
+% \begin{pmatrix}
+% 1 & 0 & 0 \\
+% 0 & 1 & 0 \\
+% 0 & 0 & 1
+% \end{pmatrix}
+
+% % basis vectors vertical matrix
+% \begin{pmatrix}
+%     \vert & & \vert \\
+%     v_1   & \hdots & v_n   \\
+%     \vert & & \vert
+% \end{pmatrix}
+
+% % basis vectors horizontal matrix
+% \begin{pmatrix}
+%     \text{---} & v_1 & \text{---} \\
+%      & \vdots & \\
+%     \text{---} & v_2 & \text{---}
+% \end{pmatrix}
+
+% % 2x2 block matrix
+% \[\left(\begin{array}{ c | c }
+%     A & B \\
+%     \hline
+%     C & D
+%   \end{array}\right)\]
+
+% % more general block matrices
+% % same pattern as above
+% \[M = \left(
+%     \begin{array}{cc}
+%       \multicolumn{1}{c|}{A} & 0 \\ \cline{1-2}
+%       \multicolumn{1}{c|}{0} & B \\
+%     \end{array}
+%     \right)\]
+% % more complicated pattern 
+% \[\left(
+%     \begin{array}{ccccc}
+%       A_{11} & 0 & \cdots & \multicolumn{1}{c|}{0} &\cdots \\
+%       \cline{2-5}
+%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
+%       \multicolumn{1}{c|}{\vdots} && (M_{ij}) &\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
+%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{}\\ \cline{1-4}
+%       \multicolumn{1}{c|}{\vdots} &&&& \multicolumn{1}{c|}{}\\
+%       \cline{2-5}
+%     \end{array}
+%     \right)\]
