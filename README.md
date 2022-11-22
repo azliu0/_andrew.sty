@@ -1,5 +1,5 @@
 # _andrew.sty
-My general use latex style file. Stylistic inspiration for this design came from some combination of the notes of [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), [Andrew Lin](http://www.mit.edu/~lindrew/notes.html), and [Evan Chen](https://web.evanchen.cc/coursework.html). See the MWE in this repository for a fast way to set up. 
+My general use latex style file. Stylistic inspiration for this design came from some combination of the notes of [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), [Andrew Lin](http://www.mit.edu/~lindrew/notes.html), and [Evan Chen](https://web.evanchen.cc/coursework.html). See the MWE in this repository for a fast way to set up (compile multiple times with asymptote, LaTeX, etc. for everything to show properly if running locally). Examples of full-length projects compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
 
 ## features
 
