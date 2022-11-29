@@ -71,12 +71,14 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\EE}{\mathbb{E}}
+\newcommand{\HH}{\mathbb{H}}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\Span}{span} % \span already defined
 \DeclareMathOperator{\stab}{stab}
 \DeclareMathOperator{\var}{var}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\len}{len}
 \newcommand{\gen}[1]{\langle #1\rangle}
 \newcommand{\lgen}[1]{\left\langle #1 \right\rangle}
 
@@ -283,6 +285,36 @@
 % \end{asy}
 % \end{center}
 
+% % asymptote starter, stretching + arcs
+% \begin{center}
+% \begin{asy}
+% import graph; size(3cm); 
+% pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps);
+% pen bronze = RGB(205, 127, 50);
+% real eps = 10;
+% real yscaling = 0.75;
+
+% path A = scale(3)*unitcircle;
+% path B = scale(2)*unitcircle;
+% path C = unitcircle;
+% path D = scale(0.5)*unitcircle;
+% draw(A);
+% draw(B);
+% draw(C);
+% filldraw(D, green, green);
+
+% draw((0,3)--(0,4), bronze);
+% draw((0,-3)--(0,-4), bronze);
+% draw((2,0)--(3,0), bronze);
+% draw((-2,0)--(-3,0), bronze);
+% draw((0,1)--(0,2), bronze);
+% draw((0,-1)--(0,-2), bronze);
+
+% path rotation = arc((0,3.4/yscaling), 1, -225+eps, 45-eps);
+% draw(yscale(yscaling)*rotation, Arrow(3bp));
+% \end{asy}
+% \end{center}
+
 % % general matrix starter
 % \begin{pmatrix}3 & 2 \\ 2 & 5\end{pmatrix}
 % \twotwo{1}{0}{0}{1} % id
@@ -317,6 +349,13 @@
 %     C & D
 %   \end{array}\right)\]
 
+% % general horizontal matrix
+% % ^t (transpose) for inline general vertical matrix
+% \begin{pmatrix}v_1 & v_2 & \hdots & v_n\end{pmatrix}
+
+% % general vertical matrix
+% \begin{pmatrix}v_1 \\ v_2 \\ \vdots \\ v_n\end{pmatrix}
+
 % % more general block matrices
 % % same pattern as above
 % \[M = \left(
@@ -337,3 +376,9 @@
 %       \cline{2-5}
 %     \end{array}
 %     \right)\]
+
+% % 3x3 id matrix with border labels
+% \bordermatrix{ &c_1&c_2&c_3\cr
+%                 r_1&1&0&0\cr
+%                 r_2&0&1&0\cr
+%                 r_3&0&0&1}
