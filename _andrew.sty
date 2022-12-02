@@ -65,22 +65,34 @@
 \renewcommand{\comment}[1]{\textbf{\textcolor{Red}{#1}}}
 \newcommand{\cis}[1]{\text{cis}(#1^{\circ})}
 \newcommand{\ac}[1]{\textbf{\textcolor{blue}{#1}}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\FF}{\mathbb{F}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\EE}{\mathbb{E}}
-\newcommand{\HH}{\mathbb{H}}
-\DeclareMathOperator{\im}{im}
+\newcommand{\RR}{\mathbb{R}} % real
+\newcommand{\CC}{\mathbb{C}} % complex
+\newcommand{\FF}{\mathbb{F}} % field
+\newcommand{\QQ}{\mathbb{Q}} % rationals
+\newcommand{\ZZ}{\mathbb{Z}} % integers
+\newcommand{\EE}{\mathbb{E}} % ev
+\newcommand{\HH}{\mathbb{H}} % quaternions
+\newcommand{\OO}{\mathbb{O}} % octonions
+\newcommand{\ihat}{\hat{\imath}} % basis vector
+\newcommand{\jhat}{\hat{\jmath}} % basis vector
+\newcommand{\khat}{\hat{k}} % basis vector
+\newcommand{\yhat}{\hat{y}} % stats
+\newcommand{\norm}[1]{\vert #1\vert} % norm
+\newcommand{\ov}[1]{\overline{#1}} % overline shortcut
+\newcommand{\siff}{\longleftrightarrow} % single line iff
+\DeclareMathOperator{\re}{Re} % Re (text version) 
+\DeclareMathOperator{\ima}{Im} % Im (text version)
+\DeclareMathOperator{\im}{im} % image (kernel defined already)
 \DeclareMathOperator{\Span}{span} % \span already defined
-\DeclareMathOperator{\stab}{stab}
-\DeclareMathOperator{\var}{var}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\SL}{SL}
-\DeclareMathOperator{\len}{len}
-\newcommand{\gen}[1]{\langle #1\rangle}
-\newcommand{\lgen}[1]{\left\langle #1 \right\rangle}
+\DeclareMathOperator{\stab}{stab} % stabilizer
+\DeclareMathOperator{\var}{var} % variance
+\DeclareMathOperator{\GL}{GL} % general linear group
+\DeclareMathOperator{\SL}{SL} % special linear group 
+\DeclareMathOperator{\len}{len} % length 
+\DeclareMathOperator{\spin}{Spin} % spin group
+\newcommand{\gen}[1]{\langle #1\rangle} % generator / form
+\newcommand{\lgen}[1]{\left\langle #1 \right\rangle} % big generator / form
+\newcommand{\emptyform}{\gen{\cdot, \cdot}} % empty form
 
 % matrix shortcuts
 \newcommand{\htwo}[2]{\begin{pmatrix}#1 & #2\end{pmatrix}}
