@@ -2,7 +2,7 @@
 
 <img width="350" alt="" src="https://user-images.githubusercontent.com/106511084/205848479-830b369c-3b52-431c-9291-f5d72cd68330.png">
 
-My general use latex style file. Stylistic inspiration for this design came from some combination of the notes of [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). See the MWE in this repository for a fast way to set up (compile multiple times with asymptote, LaTeX, etc. for everything to show properly if running locally). Examples of full-length projects compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
+My general use latex style file. My design is heavily inspired by combinations of notes from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). See the MWE in this repository for a fast way to set up (compile multiple times with asymptote, LaTeX, etc. for everything to show properly if running locally). Examples of some of my class notes compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
 
 ## features
 
