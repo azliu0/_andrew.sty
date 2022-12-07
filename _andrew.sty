@@ -17,13 +17,14 @@
 \RequirePackage{float} % figure formatting
 \RequirePackage{graphicx} % \includegraphics
 \RequirePackage[stable]{footmisc} % footnotes
-\RequirePackage[margin = 1.5in]{geometry} % margins
+\RequirePackage[margin = 1.5in]{geometry} % geometry of the page
 \RequirePackage{fancyhdr} % headers+footers
 \RequirePackage{tocloft} % toc
 \RequirePackage{pgffor} % \foreach
 \RequirePackage{upgreek} % upright greek letters
 \RequirePackage{marvosym} % astronomy symbols
 \RequirePackage{fontawesome} % more symbols
+\RequirePackage{datetime} % date and time
 
 % math packages
 \RequirePackage{mathtools} % stl
@@ -56,7 +57,8 @@
 }
 
 % general commands
-\newcommand{\problem}[2]{\textbf{Problem #1} (#2)\textbf{.}}
+\newcommand{\problem}[1]{\noindent \textbf{\large{\scshape Problem #1.}}}
+\newcommand{\problembad}[2]{\textbf{Problem #1} (#2)\textbf{.}}
 \newcommand{\V}{
 
 \vspace{\baselineskip}
@@ -90,6 +92,7 @@
 \DeclareMathOperator{\SL}{SL} % special linear group 
 \DeclareMathOperator{\len}{len} % length 
 \DeclareMathOperator{\spin}{Spin} % spin group
+\DeclareMathOperator{\Tr}{Tr} % trace
 \newcommand{\gen}[1]{\langle #1\rangle} % generator / form
 \newcommand{\lgen}[1]{\left\langle #1 \right\rangle} % big generator / form
 \newcommand{\emptyform}{\gen{\cdot, \cdot}} % empty form
@@ -138,27 +141,45 @@
 % titling defaults
 % verbose naming to (hopefully) avoid collisions
 \def \customtitle {Default Title}
+\def \customsubtitle {Default Subtitle}
 \def \customauthor {Andrew Liu}
 \def \customprof {Default Lecturer}
 \def \customdate {\today}
 \def \customlhead {\customauthor}
 \def \customrhead {}
 \def \customimportfolder {notes}
+\def \customclass {}
+\def \customclassnum {}
+\def \customseason {Fall}
+
+% figure out the semester 
+\ifnum \month<8
+    \renewcommand{\customseason}{Spring}
+\fi
 
 % titling commands
 \newcommand{\settitle}[1]{\renewcommand{\customtitle}{#1}}
+\newcommand{\setsubtitle}[1]{\renewcommand{\customsubtitle}{#1}}
 \newcommand{\setauthor}[1]{\renewcommand{\customauthor}{#1}}
 \newcommand{\setprof}[1]{\renewcommand{\customprof}{#1}}
 \newcommand{\setdate}[1]{\renewcommand{\customdate}{#1}}
 \newcommand{\setlhead}[1]{\renewcommand{\customlhead}{#1}}
 \newcommand{\setrhead}[1]{\renewcommand{\customrhead}{#1}}
 \newcommand{\setimportfolder}[1]{\renewcommand{\customimportfolder}{#1}}
+\newcommand{\setclass}[1]{\renewcommand{\customclass}{#1}}
+\newcommand{\setclassnum}[1]{\renewcommand{\customclassnum}{#1}}
 
 % setting main title
 \title{{\fontfamily{lmss}\selectfont
 \textbf{\customtitle}}}
 \author{\large \textsc{\customauthor}}
 \date{\customdate}
+
+% set margin
+\newcommand{\setmargin}[1]{
+    \newgeometry{margin=#1}
+    \fancyhfoffset[E,O]{0pt}
+}
 
 % setting headers 
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
@@ -169,13 +190,24 @@
 
 % process options
 \DeclareOption{notes}{
-\title{{\fontfamily{lmss}\selectfont
-\textbf{\huge \customtitle}}}
-\title{{\fontfamily{lmss}\selectfont
-\textbf{{\huge \customtitle}\\
-{\Large Lecturer: \customprof}
-}}}
-\rhead{\nouppercase{\leftmark}}
+    \settitle{
+        {\fontfamily{lmss}\selectfont
+        \textbf{{\huge \customtitle}\\
+        {\Large Lecturer: \customprof}
+        }}
+    }
+    \setrhead{\nouppercase{\leftmark}}
+}
+\DeclareOption{pset}{
+    \settitle{
+        {\fontfamily{lmss}\selectfont
+        \textbf{{\LARGE \customclass\hspace{4pt}(\customseason, \the\year)}\\
+        {\Large Problem Set \customclassnum}
+        }}
+    }
+    \setrhead{
+        \customclass\hspace{4pt}Problem Set \customclassnum\hspace{4pt}Solutions
+    }
 }
 \DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
@@ -243,6 +275,78 @@
 %  Angola& AO  & AGO&024\\
 %  \hline
 % \end{tabular}
+
+% % general matrix starter
+% \begin{pmatrix}3 & 2 \\ 2 & 5\end{pmatrix}
+% \twotwo{1}{0}{0}{1} % id
+% \vtwo{1}{0} % 2x1
+% \htwo{0}{1} % 1x2
+
+% % 3x3 matrix
+% \begin{pmatrix}
+% 1 & 0 & 0 \\
+% 0 & 1 & 0 \\
+% 0 & 0 & 1
+% \end{pmatrix}
+
+% % basis vectors vertical matrix
+% \begin{pmatrix}
+%     \vert & & \vert \\
+%     v_1   & \hdots & v_n   \\
+%     \vert & & \vert
+% \end{pmatrix}
+
+% % basis vectors horizontal matrix
+% \begin{pmatrix}
+%     \text{---} & v_1 & \text{---} \\
+%      & \vdots & \\
+%     \text{---} & v_2 & \text{---}
+% \end{pmatrix}
+
+% % 2x2 block matrix
+% \[\left(\begin{array}{ c | c }
+%     A & B \\
+%     \hline
+%     C & D
+%   \end{array}\right)\]
+
+% % general horizontal matrix
+% % ^t (transpose) for inline general vertical matrix
+% \begin{pmatrix}v_1 & v_2 & \hdots & v_n\end{pmatrix}
+
+% % general vertical matrix
+% \begin{pmatrix}v_1 \\ v_2 \\ \vdots \\ v_n\end{pmatrix}
+
+% % more general block matrices
+% % same pattern as above
+% \[M = \left(
+%     \begin{array}{cc}
+%       \multicolumn{1}{c|}{A} & 0 \\ \cline{1-2}
+%       \multicolumn{1}{c|}{0} & B \\
+%     \end{array}
+%     \right)\]
+% % more complicated pattern 
+% \[\left(
+%     \begin{array}{ccccc}
+%       A_{11} & 0 & \cdots & \multicolumn{1}{c|}{0} &\cdots \\
+%       \cline{2-5}
+%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
+%       \multicolumn{1}{c|}{\vdots} && (M_{ij}) &\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
+%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{}\\ \cline{1-4}
+%       \multicolumn{1}{c|}{\vdots} &&&& \multicolumn{1}{c|}{}\\
+%       \cline{2-5}
+%     \end{array}
+%     \right)\]
+
+% % 3x3 id matrix with border labels
+% \bordermatrix{ &c_1&c_2&c_3\cr
+%                 r_1&1&0&0\cr
+%                 r_2&0&1&0\cr
+%                 r_3&0&0&1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ASYMPTOTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % % asymptote starter, dots+lines
 % \begin{center}
@@ -327,70 +431,48 @@
 % \end{asy}
 % \end{center}
 
-% % general matrix starter
-% \begin{pmatrix}3 & 2 \\ 2 & 5\end{pmatrix}
-% \twotwo{1}{0}{0}{1} % id
-% \vtwo{1}{0} % 2x1
-% \htwo{0}{1} % 1x2
+% % asymptote starter, intersection points 
+% \begin{center}
+% \begin{asy}
+% import graph; size(5cm); 
+% pen dps = linewidth(0.7) + fontsize(9); defaultpen(dps);
+% real yscaling = 0.15;
+% real yscaling2 = 0.65;
 
-% % 3x3 matrix
-% \begin{pmatrix}
-% 1 & 0 & 0 \\
-% 0 & 1 & 0 \\
-% 0 & 0 & 1
-% \end{pmatrix}
+% path A = unitcircle;
+% path arc_bot = arc((0,0), 1, 180, 360); 
+% path arc_top = arc((0,0), 1, 0, 180); 
+% path eq_bot = yscale(yscaling)*arc_bot;
+% path eq_top = yscale(yscaling)*arc_top; 
+% path l1_right = rotate(90)*yscale(yscaling)*arc_bot; 
+% path l1_left = rotate(90)*yscale(yscaling)*arc_top; 
+% path i_right = rotate(90)*yscale(yscaling2)*arc_bot; 
+% path i_left = rotate(90)*yscale(yscaling2)*arc_top; 
 
-% % basis vectors vertical matrix
-% \begin{pmatrix}
-%     \vert & & \vert \\
-%     v_1   & \hdots & v_n   \\
-%     \vert & & \vert
-% \end{pmatrix}
+% /* equator */
+% draw(eq_bot, red);
+% draw(eq_top, red+dotted);
+% /* longitude */
+% draw(l1_left, blue+dotted);
+% draw(l1_right, blue);
+% /* i longitude */
+% draw(i_left, blue+dotted);
+% draw(i_right, blue);
+% draw(A); 
 
-% % basis vectors horizontal matrix
-% \begin{pmatrix}
-%     \text{---} & v_1 & \text{---} \\
-%      & \vdots & \\
-%     \text{---} & v_2 & \text{---}
-% \end{pmatrix}
+% /* dots and labels */
+% pair [] i = intersectionpoints(eq_bot, i_right);
+% pair [] mi = intersectionpoints(eq_top, i_left);
+% dot(i[0], red+2);
+% dot(mi[0], red+2);
+% label("$i$", i[0], SE, red);
+% label("$-i$", mi[0], SE, red);
 
-% % 2x2 block matrix
-% \[\left(\begin{array}{ c | c }
-%     A & B \\
-%     \hline
-%     C & D
-%   \end{array}\right)\]
-
-% % general horizontal matrix
-% % ^t (transpose) for inline general vertical matrix
-% \begin{pmatrix}v_1 & v_2 & \hdots & v_n\end{pmatrix}
-
-% % general vertical matrix
-% \begin{pmatrix}v_1 \\ v_2 \\ \vdots \\ v_n\end{pmatrix}
-
-% % more general block matrices
-% % same pattern as above
-% \[M = \left(
-%     \begin{array}{cc}
-%       \multicolumn{1}{c|}{A} & 0 \\ \cline{1-2}
-%       \multicolumn{1}{c|}{0} & B \\
-%     \end{array}
-%     \right)\]
-% % more complicated pattern 
-% \[\left(
-%     \begin{array}{ccccc}
-%       A_{11} & 0 & \cdots & \multicolumn{1}{c|}{0} &\cdots \\
-%       \cline{2-5}
-%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
-%       \multicolumn{1}{c|}{\vdots} && (M_{ij}) &\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{} \\
-%       \multicolumn{1}{c|}{0} &&&\multicolumn{1}{c|}{} &\multicolumn{1}{c|}{}\\ \cline{1-4}
-%       \multicolumn{1}{c|}{\vdots} &&&& \multicolumn{1}{c|}{}\\
-%       \cline{2-5}
-%     \end{array}
-%     \right)\]
-
-% % 3x3 id matrix with border labels
-% \bordermatrix{ &c_1&c_2&c_3\cr
-%                 r_1&1&0&0\cr
-%                 r_2&0&1&0\cr
-%                 r_3&0&0&1}
+% pair [] x = intersectionpoints(eq_bot, l1_right); 
+% pair [] mx = intersectionpoints(eq_top, l1_left);
+% dot(x[0], red+2);
+% dot(mx[0], red+2);
+% label("$\gamma$", x[0], SE*1.25, red);
+% label("$-\gamma$", mx[0], SE, red);
+% \end{asy}
+% \end{center}
