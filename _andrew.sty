@@ -4,6 +4,7 @@
 %   /   \/  %
 %  (\|||/)  %
 %%%%%%%%%%%%%
+% https://github.com/yellowtomato98/_andrew.sty
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{_andrew}[2022/10/01 Andrew's sty file]
@@ -35,6 +36,8 @@
 \RequirePackage{asymptote} % pretty pictures
 \RequirePackage{mathdots} % dots 
 \RequirePackage{cancel} % cancelling lines 
+\RequirePackage{tikz-cd} % commutative diagrams
+\RequirePackage{centernot} % center not
 \RequirePackage{hyperref} % referencing 
 
 % setting up section headers
@@ -93,6 +96,9 @@
 \DeclareMathOperator{\len}{len} % length 
 \DeclareMathOperator{\spin}{Spin} % spin group
 \DeclareMathOperator{\Tr}{Tr} % trace
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Perm}{Perm} % permutations
+\DeclareMathOperator{\sgn}{sgn} % sgn homomorphism
 \newcommand{\gen}[1]{\langle #1\rangle} % generator / form
 \newcommand{\lgen}[1]{\left\langle #1 \right\rangle} % big generator / form
 \newcommand{\emptyform}{\gen{\cdot, \cdot}} % empty form
@@ -135,6 +141,8 @@
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{Green}{Example \thesection.\thecnt}}}}
 \newcommand{\lemlabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Lemma \thesection.\thecnt}}}}
+\newcommand{\lemlabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Lemma \thesection.\thecnt} (#1)}}}
 \newcommand{\mislabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{black}{Misconception} \Warning \textcolor{black}}}}
 
