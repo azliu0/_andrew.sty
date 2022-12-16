@@ -26,12 +26,13 @@
 \RequirePackage{marvosym} % astronomy symbols
 \RequirePackage{fontawesome} % more symbols
 \RequirePackage{datetime} % date and time
+\RequirePackage{adjustbox} % scaling tikzcd diagrams
 
 % math packages
-\RequirePackage{mathtools} % stl
-\RequirePackage{amssymb} % stl
-\RequirePackage{amsthm} % stl
-\RequirePackage{empheq} % stl
+\RequirePackage{mathtools} % 
+\RequirePackage{amssymb} % 
+\RequirePackage{amsthm} % 
+\RequirePackage{empheq} % 
 \RequirePackage{xfrac} % diagonal fractions
 \RequirePackage{asymptote} % pretty pictures
 \RequirePackage{mathdots} % dots 
@@ -56,7 +57,8 @@
 \hypersetup{
     colorlinks=true, 
     linktoc=all,    
-    linkcolor=BrickRed,  
+    linkcolor=BrickRed, 
+    urlcolor=black
 }
 
 % general commands
@@ -139,10 +141,14 @@
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Corollary \thesection.\thecnt}}}}
 \newcommand{\exlabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{Green}{Example \thesection.\thecnt}}}}
+\newcommand{\exlabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{Green}{\textbf{Example \thesection.\thecnt} (#1)}}}
 \newcommand{\lemlabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Lemma \thesection.\thecnt}}}}
 \newcommand{\lemlabelname}[1]{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Lemma \thesection.\thecnt} (#1)}}}
+\newcommand{\claimlabel}{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Claim \thesection.\thecnt}}}}
 \newcommand{\mislabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{black}{Misconception} \Warning \textcolor{black}}}}
 
@@ -179,7 +185,7 @@
 
 % setting main title
 \title{{\fontfamily{lmss}\selectfont
-\textbf{\customtitle}}}
+\textbf{\huge\customtitle}}}
 \author{\large \textsc{\customauthor}}
 \date{\customdate}
 
