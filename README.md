@@ -1,6 +1,6 @@
 # _andrew.sty
 
-general use latex style file. My design is heavily inspired by combinations of notes from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). This repository also contains an example file that can be copied for easy use. Examples of some of my class notes compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
+general use latex style file. this design takes inspiration from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). This repository also contains an example file that can be copied for easy use. Examples of some of my class notes compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
 
 ## features
 
@@ -22,8 +22,3 @@ general use latex style file. My design is heavily inspired by combinations of n
 % ...
 ```
 the command ```\importfiles``` does everything for you. I made this command after realizing halfway through the semester that more than 75% of my ```main.tex``` was just importing files, and it was a bit of a hassle to have to scroll all the time.
-
-## features I want to add 
-* support for theorem/corollary/proposition/etc. referencing tags. right now, the way that I've set up my color boxes is separate from the way that I'm tagging each box, meaning that referencing does not work like it normally would (i.e., for regular ```\begin{theorem} ... \end{theorem}``` 
-environments). I'd like to try to combine these two functionalities
-* create commands for some of my templates, so incorporating them in real-time is faster
