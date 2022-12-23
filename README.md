@@ -1,8 +1,6 @@
 # _andrew.sty
 
-<img width="350" alt="" src="https://user-images.githubusercontent.com/106511084/205848479-830b369c-3b52-431c-9291-f5d72cd68330.png">
-
-My general use latex style file. My design is heavily inspired by combinations of notes from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). This repository also contains an example file that can be copied for easy use. Examples of some of my class notes compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
+general use latex style file. My design is heavily inspired by combinations of notes from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). This repository also contains an example file that can be copied for easy use. Examples of some of my class notes compiled with ```_andrew.sty``` can be found [here](https://github.com/yellowtomato98/class-notes).
 
 ## features
 
