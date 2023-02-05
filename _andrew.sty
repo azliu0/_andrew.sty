@@ -94,7 +94,8 @@
 \DeclareMathOperator{\im}{im} % image (kernel defined already)
 \DeclareMathOperator{\Span}{span} % \span already defined
 \DeclareMathOperator{\stab}{stab} % stabilizer
-\DeclareMathOperator{\var}{var} % variance
+\DeclareMathOperator{\var}{Var} % variance
+\DeclareMathOperator{\cov}{Cov} % covariance
 \DeclareMathOperator{\GL}{GL} % general linear group
 \DeclareMathOperator{\SL}{SL} % special linear group 
 \DeclareMathOperator{\len}{len} % length 
@@ -103,9 +104,26 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Perm}{Perm} % permutations
 \DeclareMathOperator{\sgn}{sgn} % sgn homomorphism
+\DeclareMathOperator*{\argmax}{arg\,max} % argmax
+\DeclareMathOperator*{\argmin}{arg\,min} % argmin
+\newcommand{\ddd}{\mathrm{d}} % integrals
 \newcommand{\gen}[1]{\langle #1\rangle} % generator / form
 \newcommand{\lgen}[1]{\left\langle #1 \right\rangle} % big generator / form
 \newcommand{\emptyform}{\gen{\cdot, \cdot}} % empty form
+
+% distributions and stuff
+\DeclareMathOperator{\Bern}{\textsc{Bern}} % bernoulli 
+\DeclareMathOperator{\Bin}{\textsc{B}} % binomial
+\DeclareMathOperator{\Nbin}{\textsc{NB}} % negative binomial
+\DeclareMathOperator{\Norm}{\mathcal{N}} % normal, not lowercase norm
+\DeclareMathOperator{\Exp}{\textsc{Exp}} % exponential
+\DeclareMathOperator{\Pois}{\textsc{Pois}} % poisson
+\DeclareMathOperator{\Unif}{\textsc{Uniform}} % uniform
+\DeclareMathOperator{\Geom}{\textsc{Geom}} % geometric
+\DeclareMathOperator{\Hgeom}{\textsc{Hypergeom}} % geometric
+\newcommand{\cp}{\overset{p}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges in probability
+\newcommand{\cas}{\overset{a.s.}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges almost surely
+\newcommand{\cd}{\overset{d}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges in distribution
 
 % matrix shortcuts
 \newcommand{\htwo}[2]{\begin{pmatrix}#1 & #2\end{pmatrix}}
@@ -133,6 +151,8 @@
 \newcommand{\deflabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont
 \textbf{\textcolor{WildStrawberry}{Definition \thesection.\thecnt}}}}
+\newcommand{\deflabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{WildStrawberry}{\textbf{Definition \thesection.\thecnt} (#1)}}}
 \newcommand{\thmlabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Theorem \thesection.\thecnt}}}}
 \newcommand{\thmlabelname}[1]{\addtocounter{cnt}{1}
@@ -171,8 +191,21 @@
 \def \customseason {Fall}
 
 % figure out the semester 
-\ifnum \month<8
-    \renewcommand{\customseason}{Spring}
+% default semester is fall
+\ifnum \month = 1 % january
+    \renewcommand{\customseason}{IAP}
+\else
+    \ifnum \month = 2 %february
+        \ifnum \day < 7
+            \renewcommand{\customseason}{IAP}
+        \else
+            \renewcommand{\customseason}{Spring}
+        \fi
+    \else 
+        \ifnum \month<8
+            \renewcommand{\customseason}{Spring}
+        \fi
+    \fi
 \fi
 
 % titling commands
@@ -219,7 +252,7 @@
 \DeclareOption{pset}{
     \settitle{
         {\fontfamily{lmss}\selectfont
-        \textbf{{\LARGE \customclass\hspace{4pt}(\customseason, \the\year)}\\
+        \textbf{{\LARGE \customclass\hspace{4pt}(\customseason\hspace{0pt} \the\year)}\\
         {\Large Problem Set \customclassnum}
         }}
     }
