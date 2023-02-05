@@ -41,6 +41,14 @@
 \RequirePackage{centernot} % center not
 \RequirePackage{hyperref} % referencing 
 
+% pseudoalgorithm setup
+\RequirePackage[linesnumbered,ruled,vlined]{algorithm2e} % algorithms
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont} % comment style
+\renewcommand\AlCapFnt{\scshape\vspace{0.03cm}}
+\SetKwInput{KwInput}{Input}  % allow input
+\SetKwInput{KwOutput}{Output}  % allow output
+
 % setting up section headers
 \titleformat{\section}
   {\fontfamily{lmss}\bfseries\LARGE}{\fontfamily{lmss}\bfseries\LARGE\thesection}{1em}{}
@@ -394,6 +402,32 @@
 %                 r_1&1&0&0\cr
 %                 r_2&0&1&0\cr
 %                 r_3&0&0&1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PSEUDOALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{algorithm}[!ht]
+% \DontPrintSemicolon
+% \SetNoFillComment
+
+% \caption{\textsc{Perceptron}}\label{alg:perceptron}
+% \tcc{this is better than a random linear classifier}
+% \KwInput{$\tau, \mathcal{D}_n$}
+% \KwOutput{$\theta, \theta_0$ \tcp*[l]{recall that $\theta, \theta_0$ represents a hypothesis}}
+% $\theta = \begin{bmatrix}0 & 0 & \cdots & 0\end{bmatrix}^T$\;
+% $\theta_0 = 0$\;
+% \For{$t = 1$ to $\tau$}{
+%     \For{$i = 1$ to $n$} {
+%         \If {$y^{(i)}(\theta^Tx^{(i)} + \theta_0) \leq 0$}{
+%         \tcp*[l]{if the prediction is wrong, adjust it}
+%             $\theta = \theta + y^{(i)}x^{(i)}$\;
+%             $\theta_0 = \theta_0 + y^{(i)}$\;
+%         }
+%     }
+% }
+% \Return{$\theta, \theta_0$}
+% \end{algorithm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ASYMPTOTE
