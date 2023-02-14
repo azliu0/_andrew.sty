@@ -38,6 +38,7 @@
 \RequirePackage{mathdots} % dots 
 \RequirePackage{cancel} % cancelling lines 
 \RequirePackage{tikz-cd} % commutative diagrams
+\RequirePackage{circuitikz} % circuits
 \RequirePackage{centernot} % center not
 \RequirePackage{hyperref} % referencing 
 
@@ -132,6 +133,10 @@
 \newcommand{\cp}{\overset{p}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges in probability
 \newcommand{\cas}{\overset{a.s.}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges almost surely
 \newcommand{\cd}{\overset{d}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges in distribution
+\newcommand{\clp}{\overset{L^p}{\underset{n\rightarrow \infty}{\longrightarrow}}} % converges in Lp
+\newcommand{\clq}{\overset{L^q}{\underset{n\rightarrow \infty}{\longrightarrow}}} % same as above but with Lq
+\newcommand{\cl}[1]{\overset{L^{#1}}{\underset{n\rightarrow \infty}{\longrightarrow}}} % same as above but with L^{anything}
+\newcommand{\cinf}{\underset{n\rightarrow \infty}{\longrightarrow}} % general convergence as n tends towards infinity
 
 % matrix shortcuts
 \newcommand{\htwo}[2]{\begin{pmatrix}#1 & #2\end{pmatrix}}
