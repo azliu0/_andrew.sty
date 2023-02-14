@@ -38,9 +38,74 @@
 \RequirePackage{mathdots} % dots 
 \RequirePackage{cancel} % cancelling lines 
 \RequirePackage{tikz-cd} % commutative diagrams
-\RequirePackage{circuitikz} % circuits
+\RequirePackage{circuitikz} % circuit diagrams
 \RequirePackage{centernot} % center not
 \RequirePackage{hyperref} % referencing 
+
+
+% code listings
+\RequirePackage{listings} % code listings
+\definecolor{bg}{rgb}{0.95, 0.95, 0.95}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.75,0}
+\definecolor{codeblue}{rgb}{0,0.4375,0.75}
+\definecolor{codecom}{rgb}{0,0.4,0}
+\lstdefinestyle{minispec}{
+    backgroundcolor=\color{bg},   
+    numberstyle=\tiny\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    commentstyle=\color{codecom},
+    breakatwhitespace=false,                        
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    columns=fullflexible,
+    morekeywords=[1]{function, endfunction, return},
+    keywordstyle=[1]\color{codegreen},
+    morekeywords=[2]{Bool, case, endcase},
+    keywordstyle=[2]\color{codeblue},
+    morecomment=[l]{//}
+}
+\lstset{literate=%
+    {Bit\#(1)}{{{\color{codeblue}Bit\#(1)}}}1
+    {Bit\#(2)}{{{\color{codeblue}Bit\#(2)}}}1
+    {Bit\#(3)}{{{\color{codeblue}Bit\#(3)}}}1
+    {Bit\#(4)}{{{\color{codeblue}Bit\#(4)}}}1
+    {Bit\#(5)}{{{\color{codeblue}Bit\#(5)}}}1
+    {Bit\#(6)}{{{\color{codeblue}Bit\#(6)}}}1
+    {Bit\#(7)}{{{\color{codeblue}Bit\#(7)}}}1
+    {Bit\#(8)}{{{\color{codeblue}Bit\#(8)}}}1
+    {Bit\#(9)}{{{\color{codeblue}Bit\#(9)}}}1
+    {Bit\#(10)}{{{\color{codeblue}Bit\#(10)}}}1
+    {Bit\#(11)}{{{\color{codeblue}Bit\#(11)}}}1
+    {Bit\#(12)}{{{\color{codeblue}Bit\#(12)}}}1
+    {Bit\#(13)}{{{\color{codeblue}Bit\#(13)}}}1
+    {Bit\#(14)}{{{\color{codeblue}Bit\#(14)}}}1
+    {Bit\#(15)}{{{\color{codeblue}Bit\#(15)}}}1
+    {Bit\#(16)}{{{\color{codeblue}Bit\#(16)}}}1
+    {Bit\#(17)}{{{\color{codeblue}Bit\#(17)}}}1
+    {Bit\#(18)}{{{\color{codeblue}Bit\#(18)}}}1
+    {Bit\#(19)}{{{\color{codeblue}Bit\#(19)}}}1
+    {Bit\#(20)}{{{\color{codeblue}Bit\#(20)}}}1
+    {Bit\#(21)}{{{\color{codeblue}Bit\#(21)}}}1
+    {Bit\#(22)}{{{\color{codeblue}Bit\#(22)}}}1
+    {Bit\#(23)}{{{\color{codeblue}Bit\#(23)}}}1
+    {Bit\#(24)}{{{\color{codeblue}Bit\#(24)}}}1
+    {Bit\#(25)}{{{\color{codeblue}Bit\#(25)}}}1
+    {Bit\#(26)}{{{\color{codeblue}Bit\#(26)}}}1
+    {Bit\#(27)}{{{\color{codeblue}Bit\#(27)}}}1
+    {Bit\#(28)}{{{\color{codeblue}Bit\#(28)1}}}1
+    {Bit\#(29)}{{{\color{codeblue}Bit\#(29)}}}1
+    {Bit\#(30)}{{{\color{codeblue}Bit\#(30)}}}1
+    {Bit\#(31)}{{{\color{codeblue}Bit\#(31)}}}1
+    {Bit\#(32)}{{{\color{codeblue}Bit\#(32)}}}1
+}
+\lstset{style=minispec}
 
 % pseudoalgorithm setup
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e} % algorithms
@@ -83,6 +148,7 @@
 \newcommand{\ac}[1]{\textbf{\textcolor{blue}{#1}}}
 \newcommand{\RR}{\mathbb{R}} % real
 \newcommand{\CC}{\mathbb{C}} % complex
+\newcommand{\NN}{\mathbb{N}} % naturals
 \newcommand{\FF}{\mathbb{F}} % field
 \newcommand{\QQ}{\mathbb{Q}} % rationals
 \newcommand{\ZZ}{\mathbb{Z}} % integers
@@ -94,6 +160,7 @@
 \newcommand{\jhat}{\hat{\jmath}} % basis vector
 \newcommand{\khat}{\hat{k}} % basis vector
 \newcommand{\yhat}{\hat{y}} % stats
+\newcommand{\phat}{\hat{p}} % stats
 \newcommand{\norm}[1]{\vert #1\vert} % norm
 \newcommand{\lnorm}[1]{\left\vert #1\right\vert} % norm
 \newcommand{\ov}[1]{\overline{#1}} % overline shortcut
