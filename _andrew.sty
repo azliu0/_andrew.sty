@@ -40,6 +40,7 @@
 \RequirePackage{tikz-cd} % commutative diagrams
 \RequirePackage{circuitikz} % circuit diagrams
 \RequirePackage{centernot} % center not
+\RequirePackage{bbm} % indicator variables
 \RequirePackage{hyperref} % referencing 
 
 
@@ -49,7 +50,7 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codegreen}{rgb}{0,0.75,0}
 \definecolor{codeblue}{rgb}{0,0.4375,0.75}
-\definecolor{codecom}{rgb}{0,0.4,0.5}
+\definecolor{codecom}{rgb}{0,0.4,0}
 \lstdefinestyle{minispec}{
     backgroundcolor=\color{bg},   
     numberstyle=\tiny\color{codegray},
@@ -64,27 +65,14 @@
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2,
-    columns=fullflexible, % align color replacements
+    columns=fullflexible,
     morekeywords=[1]{function, endfunction, return},
-    keywordstyle=[1]\color{codegreen}, % make functions green
+    keywordstyle=[1]\color{codegreen},
     morekeywords=[2]{Bool, case, endcase},
-    keywordstyle=[2]\color{codeblue}, % make types blue
-    morecomment=[l]{//}, % comment = // 
-    escapechar={~} % manually override some colors
+    keywordstyle=[2]\color{codeblue},
+    morecomment=[l]{//}
 }
 \lstset{literate=%
-    *{0}{{{\color{red!20!violet}0}}}1
-    {1}{{{\color{red!20!violet}1}}}1
-    {2}{{{\color{red!20!violet}2}}}1
-    {3}{{{\color{red!20!violet}3}}}1
-    {4}{{{\color{red!20!violet}4}}}1
-    {5}{{{\color{red!20!violet}5}}}1
-    {6}{{{\color{red!20!violet}6}}}1
-    {7}{{{\color{red!20!violet}7}}}1
-    {8}{{{\color{red!20!violet}8}}}1
-    {9}{{{\color{red!20!violet}9}}}1
-    {'b}{{{\color{red!20!violet}'b}}}1
-    {'h}{{{\color{red!20!violet}'h}}}1
     {Bit\#(1)}{{{\color{codeblue}Bit\#(1)}}}1
     {Bit\#(2)}{{{\color{codeblue}Bit\#(2)}}}1
     {Bit\#(3)}{{{\color{codeblue}Bit\#(3)}}}1
@@ -202,7 +190,7 @@
 
 % distributions and stuff
 \DeclareMathOperator{\Bern}{\textsc{Bern}} % bernoulli 
-\DeclareMathOperator{\Bin}{\textsc{Bin}} % binomial
+\DeclareMathOperator{\Bin}{\textsc{B}} % binomial
 \DeclareMathOperator{\Nbin}{\textsc{NB}} % negative binomial
 \DeclareMathOperator{\Norm}{\mathcal{N}} % normal, not lowercase norm
 \DeclareMathOperator{\Exp}{\textsc{Exp}} % exponential
