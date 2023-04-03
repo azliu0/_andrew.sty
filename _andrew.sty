@@ -158,6 +158,7 @@
 \newcommand{\OO}{\mathbb{O}} % octonions
 \newcommand{\PP}{\mathbb{P}} % probability measure
 \newcommand{\BB}{\mathbb{B}} % brownian bridge
+\newcommand{\XX}{\mathbb{X}} % design matrix
 \newcommand{\ihat}{\hat{\imath}} % basis vector
 \newcommand{\jhat}{\hat{\jmath}} % basis vector
 \newcommand{\khat}{\hat{k}} % basis vector
@@ -255,6 +256,8 @@
 {\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Lemma \thesection.\thecnt} (#1)}}}
 \newcommand{\claimlabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{blue}{Claim \thesection.\thecnt}}}}
+\newcommand{\claimlabelname}[1]{\addtocounter{cnt}{1}
+{\fontfamily{lmss}\selectfont\textcolor{blue}{\textbf{Claim \thesection.\thecnt} (#1)}}}
 \newcommand{\mislabel}{\addtocounter{cnt}{1}
 {\fontfamily{lmss}\selectfont\textbf{\textcolor{black}{Misconception} \Warning \textcolor{black}}}}
 \newcommand{\warninglabel}{\addtocounter{cnt}{1}
@@ -478,6 +481,20 @@
 %                 r_1&1&0&0\cr
 %                 r_2&0&1&0\cr
 %                 r_3&0&0&1}
+
+% 3x3 table with border labels
+% \begin{center}
+% \begin{tabular}{c|c|c|c|}
+%  \multicolumn{1}{c}{} & \multicolumn{1}{c}{$R$} & \multicolumn{1}{c}{$P$} & \multicolumn{1}{c}{$S$} \\
+% \cline{2-4}
+%     $R$ & 0 & -1 & 1 \\
+% \cline{2-4}
+%     $P$ & 1 & 0 & -1 \\
+% \cline{2-4}
+%     $S$ & -1 & 1 & 0 \\
+% \cline{2-4}
+% \end{tabular}
+% \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PSEUDOALGORITHMS
