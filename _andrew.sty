@@ -10,6 +10,7 @@
 \ProvidesPackage{_andrew}[2022/10/01 Andrew's sty file]
 
 % formatting packages
+\RequirePackage{kpfonts} % disable to use default font
 \RequirePackage[dvipsnames]{xcolor} % makes things rainbow
 \RequirePackage{setspace} \onehalfspacing % spacing
 \RequirePackage{tcolorbox} % rainbow boxes
@@ -310,8 +311,8 @@
 % setting main title
 \title{{\fontfamily{lmss}\selectfont
 \textbf{\huge\customtitle}}}
-\author{\large \textsc{\customauthor}}
-\date{\customdate}
+\author{\fontfamily{cmr}\large \textsc{\customauthor}}
+\date{\fontfamily{cmr}\large\customdate}
 
 % set margin
 \newcommand{\setmargin}[1]{
