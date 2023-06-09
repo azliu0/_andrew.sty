@@ -2,7 +2,7 @@
 
 my general use latex style file. the design takes inspiration from [Evan Chen](https://web.evanchen.cc/coursework.html), [Rachel Wu](https://people.csail.mit.edu/rmwu/notes.html), and [Andrew Lin](http://www.mit.edu/~lindrew/notes.html). 
 
-this repository includes a minimal working example of a document that uses this style file. examples of full notes using ```_andrew.sty``` can be found [here](https://www.mit.edu/~azliu/coursework.html). 
+this repository includes a minimal working example of a document that uses this style file, which showcases some functionality and demonstrates how to get things set up, in case you have never used a style file before. examples of full notes using ```_andrew.sty``` can be found [here](https://www.mit.edu/~azliu/coursework.html). 
 
 ## features 
 
