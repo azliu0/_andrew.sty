@@ -56,6 +56,12 @@
 \definecolor{codegreen}{rgb}{0,0.75,0}
 \definecolor{codeblue}{rgb}{0,0.4375,0.75}
 \definecolor{codecom}{rgb}{0,0.4,0.5}
+\definecolor{codegreendef}{rgb}{0,0.6,0}
+\definecolor{codegraydef}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurpledef}{rgb}{0.58,0,0.82}
+\definecolor{backcolourdef}{rgb}{0.95,0.95,0.92}
+
+% minispec style for 004
 \lstdefinestyle{minispec}{
     backgroundcolor=\color{bg},   
     numberstyle=\tiny\color{codegray},
@@ -127,7 +133,28 @@
     {Bit\#(n)}{{{\color{codeblue}Bit\#(n)}}}1
     {Bit\#(n+1)}{{{\color{codeblue}Bit\#(n+1)}}}1
 }
-\lstset{style=minispec}
+
+% default overleaf style: https://www.overleaf.com/learn/latex/Code_listing
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolourdef},   
+    commentstyle=\color{codegreendef},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegraydef},
+    stringstyle=\color{codepurpledef},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 % pseudoalgorithm setup
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e} % algorithms
@@ -676,33 +703,3 @@
 % label("$-\gamma$", mx[0], SE, red);
 % \end{asy}
 % \end{center}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% default listing style: https://www.overleaf.com/learn/latex/Code_listing
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \definecolor{codegreen}{rgb}{0,0.6,0}
-% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
-% \definecolor{codepurple}{rgb}{0.58,0,0.82}
-% \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-% \lstdefinestyle{mystyle}{
-%     backgroundcolor=\color{backcolour},   
-%     commentstyle=\color{codegreen},
-%     keywordstyle=\color{magenta},
-%     numberstyle=\tiny\color{codegray},
-%     stringstyle=\color{codepurple},
-%     basicstyle=\ttfamily\footnotesize,
-%     breakatwhitespace=false,         
-%     breaklines=true,                 
-%     captionpos=b,                    
-%     keepspaces=true,                 
-%     numbers=left,                    
-%     numbersep=5pt,                  
-%     showspaces=false,                
-%     showstringspaces=false,
-%     showtabs=false,                  
-%     tabsize=2
-% }
-
-% \lstset{style=mystyle}
