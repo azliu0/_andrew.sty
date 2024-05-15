@@ -4,7 +4,7 @@ my general use latex style file. the design takes inspiration from [Evan Chen](h
 
 this repository includes a minimal working example of a document that uses this style file, which showcases some functionality and demonstrates how to get things set up, in case you have never used a style file before. 
 
-Examples of full notes using ```_andrew.sty``` can be found [here](https://azliu.cc/coursework). To see my workflow and how I use this style file, see [here](https://github.com/azliu0/dotfiles/tree/main/latex).
+Examples of full notes using ```_andrew.sty``` can be found [here](https://azliu.cc/coursework). To see my workflow and how I use this style file, see [here](https://github.com/azliu0/dotfiles/tree/main/.config/latex).
 
 ## features 
 
